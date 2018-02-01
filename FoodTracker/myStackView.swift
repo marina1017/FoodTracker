@@ -16,7 +16,7 @@ class MyStackView: UIStackView {
     lazy var textFiled: UITextField = self.createTextField()
     lazy var imageView: UIImageView = self.createImageView()
 
-    let image: UIImage = UIImage(named:"Image")!
+    lazy var image: UIImage = UIImage(named:"Image")!
 
     var title:String? {
         get {
@@ -44,12 +44,10 @@ class MyStackView: UIStackView {
         self.addArrangedSubview(self.buttom)
         self.addArrangedSubview(self.imageView)
     }
-
+    //子ビューは必要に応じてこのメソッドをオーバーライドしてより正確なレイアウトを実行できる
+    //子ビューの自動サイズ調整および制約ベースの動作が必要な動作を提供しない場合のみこのメソッドをオーバーライドする必要がある
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.layoutTitleLabel()
-        self.layoutButton()
-        self.layoutTextFiled()
         self.layoutImageView()
     }
 
@@ -91,6 +89,12 @@ class MyStackView: UIStackView {
     }
 
     //MARK: layoutSubView
+    func initLayout() {
+        self.layoutTitleLabel()
+        self.layoutButton()
+        self.layoutTextFiled()
+    }
+  
     private func layoutTitleLabel() {
         self.titleLabel.sizeToFit()
         self.titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true

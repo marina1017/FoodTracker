@@ -22,14 +22,19 @@ class ViewController: UIViewController {
         stackView.title = "てすとてすと"
         return stackView
     }()
+    
+    let layoutMarginsGuideView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
+    //MARK: -lifecycle-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.myStackView.initLayout()
         self.view.backgroundColor = UIColor.blue
-
         self.myStackView.textFiled.delegate = self
-
-
         self.view.addSubview(self.layoutMarginsGuideView)
         self.layoutMarginsGuideView.addSubview(self.myStackView)
 
@@ -46,11 +51,13 @@ class ViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //print(self.view.safeAreaInsets)
+        
+        
     }
 
     override func viewWillLayoutSubviews() {
         //print(self.view.safeAreaInsets)
+        
     }
 
     override func viewDidLayoutSubviews() {
@@ -107,12 +114,7 @@ class ViewController: UIViewController {
 
     }
 
-    let layoutMarginsGuideView: UIView = {
-        let view = UIView()
-
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    
 
     @objc func setDefaultLabelText(_ sender: UIButton) {
         self.myStackView.title = "触りました"
