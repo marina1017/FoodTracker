@@ -15,6 +15,7 @@ class MyStackView: UIStackView {
     lazy private var buttom: UIButton = self.createButton()
     lazy var textFiled: UITextField = self.createTextField()
     lazy var imageView: UIImageView = self.createImageView()
+    lazy var ratingControllView: RatingControl = self.createRatingControllView()
 
     lazy var image: UIImage = UIImage(named:"Image")!
 
@@ -43,6 +44,8 @@ class MyStackView: UIStackView {
         self.addArrangedSubview(self.textFiled)
         self.addArrangedSubview(self.buttom)
         self.addArrangedSubview(self.imageView)
+        self.addArrangedSubview(self.ratingControllView)
+        
     }
     //子ビューは必要に応じてこのメソッドをオーバーライドしてより正確なレイアウトを実行できる
     //子ビューの自動サイズ調整および制約ベースの動作が必要な動作を提供しない場合のみこのメソッドをオーバーライドする必要がある
@@ -81,13 +84,20 @@ class MyStackView: UIStackView {
         return textFiled
     }
 
-    private func createImageView()-> UIImageView {
+    private func createImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.image = self.image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
         return imageView
     }
+    
+    private func createRatingControllView() -> RatingControl {
+        let view = RatingControl()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }
+    
 
     //MARK: layoutSubView
     func initLayout() {
@@ -115,6 +125,7 @@ class MyStackView: UIStackView {
         self.imageView.widthAnchor.constraint(equalToConstant: self.frame.size.width).isActive = true
         self.imageView.heightAnchor.constraint(equalToConstant: self.frame.size.width).isActive = true
     }
+
 }
 
 extension MyStackView {

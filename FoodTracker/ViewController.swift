@@ -75,7 +75,7 @@ class ViewController: UIViewController {
 
     func constraints() {
         //myStackViewの制約
-        self.myStackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.safeAreaInsets.top + self.view.frame.height/10).isActive = true
+        self.myStackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.safeAreaInsets.top).isActive = true
         self.myStackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10).isActive = true
         self.myStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
     }
