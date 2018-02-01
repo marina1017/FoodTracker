@@ -63,6 +63,7 @@ class MyStackView: UIStackView {
         let button = UIButton()
         button.setTitle("スタックビューのボタン", for: .normal)
         button.addTarget(getParentViewController(), action: #selector(ViewController.setDefaultLabelText(_:)), for: .touchUpInside)
+        button.setTitleColor(UIColor.blue, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }
