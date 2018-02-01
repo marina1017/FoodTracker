@@ -19,7 +19,7 @@ extension ViewController: UIImagePickerControllerDelegate,UINavigationController
     guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
         fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
     }
-    self.imageView.image = selectedImage
+    self.myStackView.imageView.image = selectedImage
     
     dismiss(animated: true, completion: nil)
   }
