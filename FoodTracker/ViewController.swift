@@ -10,12 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
   
-  let customView: CustomView = {
-    let view = CustomView(frame: CGRect.zero)
-    view.title = "こんにちは"
-    return view
-  }()
-  
   let textFiled: UITextField = {
     let textFiled = UITextField()
     textFiled.placeholder = "Enter meal name"
@@ -118,7 +112,6 @@ class ViewController: UIViewController {
     self.stackView.addArrangedSubview(self.textFiled)
     self.stackView.addArrangedSubview(self.button)
     self.stackView.addArrangedSubview(self.imageView)
-    self.stackView.addSubview(self.customView)
     
 
     self.view.addSubview(self.layoutMarginsGuideView)
