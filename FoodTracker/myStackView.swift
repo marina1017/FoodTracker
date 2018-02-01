@@ -16,6 +16,8 @@ class MyStackView: UIStackView {
     lazy var textFiled: UITextField = self.createTextField()
     lazy var imageView: UIImageView = self.createImageView()
 
+    let image: UIImage = UIImage(named:"Image")!
+
     var title:String? {
         get {
             return titleLabel.text
@@ -41,7 +43,6 @@ class MyStackView: UIStackView {
         self.addArrangedSubview(self.textFiled)
         self.addArrangedSubview(self.buttom)
         self.addArrangedSubview(self.imageView)
-
     }
 
     override func layoutSubviews() {
@@ -83,8 +84,7 @@ class MyStackView: UIStackView {
 
     private func createImageView()-> UIImageView {
         let imageView = UIImageView()
-        let image: UIImage = UIImage(named:"Image")!
-        imageView.image = image
+        imageView.image = self.image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.isUserInteractionEnabled = true
         return imageView
@@ -93,34 +93,23 @@ class MyStackView: UIStackView {
     //MARK: layoutSubView
     private func layoutTitleLabel() {
         self.titleLabel.sizeToFit()
-//        self.titleLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.size.width/10).isActive = true
-//        self.titleLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: self.frame.size.width/10).isActive = true
         self.titleLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 
     private func layoutTextFiled() {
         self.textFiled.sizeToFit()
-//        self.textFiled.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.size.width/10).isActive = true
-//        self.textFiled.rightAnchor.constraint(equalTo: self.rightAnchor, constant: self.frame.size.width/10).isActive = true
         self.textFiled.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
     }
 
     private func layoutButton() {
         self.buttom.sizeToFit()
-//        self.buttom.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.size.width/10).isActive = true
-//        self.buttom.rightAnchor.constraint(equalTo: self.rightAnchor, constant: self.frame.size.width/10).isActive = true
     }
 
     private func layoutImageView() {
-        self.imageView.sizeToFit()
-//        self.imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: self.frame.size.width/10).isActive = true
-//        self.imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: self.frame.size.width/10).isActive = true
-//        self.imageView.topAnchor.constraint(equalTo: self.buttom.bottomAnchor, constant: 10)
-        
-        self.imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        self.imageView.widthAnchor.constraint(equalToConstant: self.frame.size.width).isActive = true
+        self.imageView.heightAnchor.constraint(equalToConstant: self.frame.size.width).isActive = true
     }
-
 }
 
 extension MyStackView {
