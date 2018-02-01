@@ -15,6 +15,7 @@
 		9C63D3842018CC62007C58F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C63D3822018CC62007C58F3 /* LaunchScreen.storyboard */; };
 		9CCF960E201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF960D201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */; };
 		9CCF96102020A06600C534FD /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF960F2020A06600C534FD /* CustomView.swift */; };
+		C03813942022A6D7004C9493 /* myStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03813932022A6D7004C9493 /* myStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9C63D3852018CC62007C58F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CCF960D201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		9CCF960F2020A06600C534FD /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		C03813932022A6D7004C9493 /* myStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				9C63D3792018CC62007C58F3 /* AppDelegate.swift */,
 				9C63D37B2018CC62007C58F3 /* ViewController.swift */,
+				C03813932022A6D7004C9493 /* myStackView.swift */,
 				9CCF960D201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */,
 				9C4C7F1D201CB49500577AA3 /* SafeAreaView.swift */,
 				9CCF960F2020A06600C534FD /* CustomView.swift */,
@@ -148,6 +151,7 @@
 				9CCF96102020A06600C534FD /* CustomView.swift in Sources */,
 				9C63D37C2018CC62007C58F3 /* ViewController.swift in Sources */,
 				9CCF960E201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */,
+				C03813942022A6D7004C9493 /* myStackView.swift in Sources */,
 				9C4C7F1E201CB49500577AA3 /* SafeAreaView.swift in Sources */,
 				9C63D37A2018CC62007C58F3 /* AppDelegate.swift in Sources */,
 			);

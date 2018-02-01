@@ -95,6 +95,18 @@ class ViewController: UIViewController {
   @objc func setDefaultLabelText(_ sender: UIButton) {
     self.label.text = "Default Text"
   }
+
+  //mystackViewをつかう
+    let myStackView: MyStackView = {
+        let stackView = MyStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 12
+        stackView.alignment = .leading
+        stackView.distribution = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.title = "てすとてすとあああああああああああああああああ"
+        return stackView
+    }()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -110,6 +122,7 @@ class ViewController: UIViewController {
     
 
     self.view.addSubview(self.layoutMarginsGuideView)
+    self.layoutMarginsGuideView.addSubview(self.myStackView)
     self.layoutMarginsGuideView.addSubview(stackView)
     
     //ジェスチャーを導入
@@ -184,8 +197,9 @@ class ViewController: UIViewController {
     self.imageView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0)
     self.imageView.frame.size = CGSize(width: 320, height: 320)
     
-    
-    
+    //myStackViewの制約
+    self.myStackView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    self.myStackView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuideView.bottomAnchor, constant: 0).isActive = true
   }
 
 
