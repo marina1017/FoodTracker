@@ -25,7 +25,7 @@ class ViewController: UIViewController {
   
   let layoutMarginsGuideView: UIView = {
     let view = UIView()
-    view.backgroundColor = UIColor.red
+    
     view.translatesAutoresizingMaskIntoConstraints = false
     return view
   }()
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     let myStackView: MyStackView = {
         let stackView = MyStackView()
         stackView.axis = .vertical
-        stackView.spacing = 12
+        stackView.spacing = 10
         stackView.alignment = .leading
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -113,11 +113,9 @@ class ViewController: UIViewController {
     }
 
     //myStackViewの制約
-    self.myStackView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-    self.myStackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.size.height/2).isActive = true
-    //self.myStackView.bottomAnchor.constraint(equalTo: self.layoutMarginsGuideView.bottomAnchor, constant: 0).isActive = true
+    self.myStackView.topAnchor.constraint(equalTo: self.layoutMarginsGuideView.topAnchor, constant: self.view.frame.height/15).isActive = true
     self.myStackView.leftAnchor.constraint(equalTo: self.layoutMarginsGuideView.leftAnchor, constant: 10).isActive = true
-    self.myStackView.rightAnchor.constraint(equalTo: self.layoutMarginsGuideView.rightAnchor, constant: 10).isActive = true
+    self.myStackView.centerXAnchor.constraint(equalTo: self.layoutMarginsGuideView.centerXAnchor, constant: 0).isActive = true
   }
 
 
