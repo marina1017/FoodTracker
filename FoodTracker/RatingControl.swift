@@ -9,34 +9,40 @@
 import UIKit
 
 class RatingControl: UIStackView {
-    //MARK: propaties
-    lazy var button: UIButton = self.createButton()
+    //MARK: Properties
+    private var ratingButtons = [UIButton]()
+    
+    var rating = 0
     
     //MARK : initicalize
     override init(frame: CGRect) {
         super.init(frame:frame)
-        self.commoninit()
+        self.createButtons()
     }
     
     required init(coder: NSCoder) {
         super.init(coder: coder)
         fatalError("init(coder:) has not been implemented")
-        self.commoninit()
+        self.createButtons()
     }
     
     //MARK: methods
-    private func commoninit() {
-        self.addArrangedSubview(self.button)
+    private func createButtons() {
+        for _ in 0 ..< 5 {
+            let button = UIButton()
+            button.backgroundColor = UIColor.red
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+            button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
+            button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+            self.addArrangedSubview(button)
+            ratingButtons.append(button)
+        }
     }
     
-    private func createButton() -> UIButton {
-        let button = UIButton()
-        button.backgroundColor = UIColor.red
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 44.0).isActive = true
-        
-        return button
+    //MARK: Button Action
+    @objc func ratingButtonTapped(button:UIButton) {
+        print("テスト")
     }
 
 }

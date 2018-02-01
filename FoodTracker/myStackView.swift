@@ -95,6 +95,7 @@ class MyStackView: UIStackView {
     private func createRatingControllView() -> RatingControl {
         let view = RatingControl()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.spacing = 8
         return view
     }
     
