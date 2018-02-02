@@ -41,6 +41,18 @@ class RatingControl: UIStackView {
         self.createButtons()
     }
     
+    //MARK: lifeCycle
+    //5
+    override func updateConstraints() {
+        super.updateConstraints()
+    }
+    
+    //11
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+    
+    
     //MARK: methods
     private func createButtons() {
         //今まで作っていたボタンを消す

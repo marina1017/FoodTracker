@@ -12,6 +12,7 @@
 		9C63D37F2018CC62007C58F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C63D37D2018CC62007C58F3 /* Main.storyboard */; };
 		9C63D3812018CC62007C58F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C63D3802018CC62007C58F3 /* Assets.xcassets */; };
 		9C63D3842018CC62007C58F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C63D3822018CC62007C58F3 /* LaunchScreen.storyboard */; };
+		9CB639D42024C6FB00E8B833 /* debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB639D32024C6FB00E8B833 /* debug.swift */; };
 		9CCF960E201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCF960D201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */; };
 		9CE023FF202357DE000690F0 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE023FE202357DE000690F0 /* RatingControl.swift */; };
 		C03813942022A6D7004C9493 /* myStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03813932022A6D7004C9493 /* myStackView.swift */; };
@@ -25,6 +26,7 @@
 		9C63D3802018CC62007C58F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C63D3832018CC62007C58F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C63D3852018CC62007C58F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CB639D32024C6FB00E8B833 /* debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = debug.swift; sourceTree = "<group>"; };
 		9CCF960D201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		9CE023FE202357DE000690F0 /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C03813932022A6D7004C9493 /* myStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myStackView.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				C03813932022A6D7004C9493 /* myStackView.swift */,
 				9C63D37B2018CC62007C58F3 /* ViewController.swift */,
 				9CCF960D201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */,
+				9CB639D32024C6FB00E8B833 /* debug.swift */,
 				9C63D37D2018CC62007C58F3 /* Main.storyboard */,
 				9C63D3802018CC62007C58F3 /* Assets.xcassets */,
 				9C63D3822018CC62007C58F3 /* LaunchScreen.storyboard */,
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9C63D37C2018CC62007C58F3 /* ViewController.swift in Sources */,
+				9CB639D42024C6FB00E8B833 /* debug.swift in Sources */,
 				9CCF960E201F837F00C534FD /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */,
 				C03813942022A6D7004C9493 /* myStackView.swift in Sources */,
 				9CE023FF202357DE000690F0 /* RatingControl.swift in Sources */,
@@ -292,6 +296,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.MarinaNakgawa.FoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[arch=*]" = DEBUG;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

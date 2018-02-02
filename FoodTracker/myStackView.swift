@@ -47,6 +47,7 @@ class MyStackView: UIStackView {
     }
     
     //LifeCycle
+    //6
     override func updateConstraints() {
         //これは最後に呼ぶ
         super.updateConstraints()
@@ -54,6 +55,7 @@ class MyStackView: UIStackView {
     
     //子ビューは必要に応じてこのメソッドをオーバーライドしてより正確なレイアウトを実行できる
     //子ビューの自動サイズ調整および制約ベースの動作が必要な動作を提供しない場合のみこのメソッドをオーバーライドする必要がある
+    //8 10 14
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layoutImageView()
