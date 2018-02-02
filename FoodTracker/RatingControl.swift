@@ -11,8 +11,11 @@ import UIKit
 class RatingControl: UIStackView {
     //MARK: Properties
     private var ratingButtons = [UIButton]()
-    
-    var rating = 0
+    var rating: Int = 0 {
+        didSet {
+            self.updateButtonSelectionStates()
+        }
+    }
     
     var starSize: CGSize = CGSize(width: 44.0, height: 44.0) {
         didSet {
@@ -47,6 +50,7 @@ class RatingControl: UIStackView {
             //子ViewをUIStacViewから取り除きたい場合は、通常通りその子ViewからremoveFromSuperViewを呼ぶ必要がある
             button.removeFromSuperview()
         }
+        
         //ratingButtonsをから配列にする
         ratingButtons.removeAll()
         
@@ -63,22 +67,73 @@ class RatingControl: UIStackView {
         //ボタンを消す
         for _ in 0 ..< starCount {
             let button = UIButton()
+            //画像を登録
             button.setImage(emptyStar, for: .normal)
             button.setImage(filledStar, for: .selected)
             button.setImage(highlightedStar, for: .highlighted)
             button.setImage(highlightedStar, for: [.highlighted, .selected])
+            
+            //制約関係
             button.translatesAutoresizingMaskIntoConstraints = false
             button.heightAnchor.constraint(equalToConstant: starSize.height).isActive = true
             button.widthAnchor.constraint(equalToConstant: starSize.width).isActive = true
+            
+            //音声読み上げ
+            button.accessibilityLabel = "Set \(index) star rating"
+            
+            //ボタンのアクション
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(button:)), for: .touchUpInside)
+            //ビューにaddする
             self.addArrangedSubview(button)
+            
             ratingButtons.append(button)
         }
+        self.updateButtonSelectionStates()
+    }
+    
+    private func updateButtonSelectionStates() {
+        //ratingButtons配列をタプルで添え字と要素を取り出せる
+        for (index, button) in ratingButtons.enumerated() {
+            button.isSelected = index < rating
+            
+            //ヒントを表示させる
+            let hintString: String?
+            if rating == index + 1 {
+                hintString = "タップすると０になります"
+            } else {
+                hintString = nil
+            }
+            
+            let valueString: String
+            switch rating {
+            case 0:
+                valueString = "レイティングがセットされていません"
+            case 1:
+                valueString = "1 スターがセットされています"
+            default:
+                valueString = "\(rating)スターがセットされてます"
+            }
+            
+            button.accessibilityHint = hintString
+            button.accessibilityValue = valueString
+        }
+        
+        
+        
     }
     
     //MARK: Button Action
     @objc func ratingButtonTapped(button:UIButton) {
-        print("テスト")
+        guard let index = ratingButtons.index(of: button) else {
+            fatalError("\(button)エラーです")
+        }
+        let serectedRating = index + 1
+        
+        if serectedRating == rating {
+            rating = 0
+        } else {
+            rating = serectedRating
+        }
     }
 
 }

@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         let stackView = MyStackView()
         stackView.axis = .vertical
         stackView.spacing = 10
-        stackView.alignment = .leading
+        stackView.alignment = .center
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.title = "てすとてすと"
@@ -24,6 +24,10 @@ class ViewController: UIViewController {
     }()
 
     //MARK: -lifecycle-
+    override func loadView() {
+        super.loadView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.myStackView.initLayout()
@@ -46,19 +50,21 @@ class ViewController: UIViewController {
         
         
     }
-
+    
+    //レイアウトされる前に実行される関数
     override func viewWillLayoutSubviews() {
         //print(self.view.safeAreaInsets)
-        
+        super.viewWillLayoutSubviews()
     }
-
+    
+    //レイアウトされた後に実行される関数
     override func viewDidLayoutSubviews() {
         //print(self.view.safeAreaInsets)
         print(self.view.layoutMarginsGuide.leadingAnchor)
 
         //制約をかける
         self.constraints()
-
+        super.viewDidLayoutSubviews()
 
     }
 
@@ -90,12 +96,6 @@ class ViewController: UIViewController {
         imagePickerController.modalTransitionStyle = .coverVertical
         self.present(imagePickerController, animated: true, completion: nil)
 
-    }
-
-    
-
-    @objc func setDefaultLabelText(_ sender: UIButton) {
-        self.myStackView.title = "触りました"
     }
 
 

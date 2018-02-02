@@ -12,7 +12,6 @@ class MyStackView: UIStackView {
 
     //MARK: -propties-
     lazy private var titleLabel: UILabel = self.createTitleLabel()
-    lazy private var buttom: UIButton = self.createButton()
     lazy var textFiled: UITextField = self.createTextField()
     lazy var imageView: UIImageView = self.createImageView()
     lazy var ratingControllView: RatingControl = self.createRatingControllView()
@@ -42,16 +41,24 @@ class MyStackView: UIStackView {
     private func commonInit() {
         self.addArrangedSubview(self.titleLabel)
         self.addArrangedSubview(self.textFiled)
-        self.addArrangedSubview(self.buttom)
         self.addArrangedSubview(self.imageView)
         self.addArrangedSubview(self.ratingControllView)
         
     }
+    
+    //LifeCycle
+    override func updateConstraints() {
+        //これは最後に呼ぶ
+        super.updateConstraints()
+    }
+    
     //子ビューは必要に応じてこのメソッドをオーバーライドしてより正確なレイアウトを実行できる
     //子ビューの自動サイズ調整および制約ベースの動作が必要な動作を提供しない場合のみこのメソッドをオーバーライドする必要がある
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layoutImageView()
+        self.layoutTitleLabel()
+        self.layoutTextFiled()
     }
 
 
@@ -62,18 +69,9 @@ class MyStackView: UIStackView {
         return label
     }
 
-    private func createButton() -> UIButton {
-        let button = UIButton()
-        button.setTitle("スタックビューのボタン", for: .normal)
-        button.addTarget(getParentViewController(), action: #selector(ViewController.setDefaultLabelText(_:)), for: .touchUpInside)
-        button.setTitleColor(UIColor.blue, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }
-
     private func createTextField() -> UITextField {
         let textFiled = UITextField()
-        textFiled.placeholder = "スタックビューのTextFiled"
+        textFiled.placeholder = "スタックビューのTextFiledあああああああああああああああ"
         textFiled.borderStyle = .roundedRect
         textFiled.enablesReturnKeyAutomatically = true
         textFiled.keyboardType = UIKeyboardType.emailAddress
@@ -102,9 +100,7 @@ class MyStackView: UIStackView {
 
     //MARK: layoutSubView
     func initLayout() {
-        self.layoutTitleLabel()
-        self.layoutButton()
-        self.layoutTextFiled()
+        
     }
   
     private func layoutTitleLabel() {
@@ -115,11 +111,8 @@ class MyStackView: UIStackView {
     private func layoutTextFiled() {
         self.textFiled.sizeToFit()
         self.textFiled.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.textFiled.widthAnchor.constraint(equalToConstant: self.frame.size.width).isActive = true
 
-    }
-
-    private func layoutButton() {
-        self.buttom.sizeToFit()
     }
 
     private func layoutImageView() {
