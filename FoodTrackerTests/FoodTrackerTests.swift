@@ -18,12 +18,31 @@ class FoodTrackerTests: XCTestCase {
         //レーティング0のとき
         let zeroRatingMeal = Meal(name: "Zero", photo: nil, rating: 0)
         //XCTAssertNil X が nil であることをチェックする
-        XCTAssertNil(zeroRatingMeal)
+        XCTAssertNotNil(zeroRatingMeal)
         
         //レーティングが一番高い時
         let positiveRatingMeal = Meal(name: "Positive", photo: nil, rating: 5)
-        XCTAssertNil(positiveRatingMeal)
+        XCTAssertNotNil(positiveRatingMeal)
+    }
+    
+    func testMealInitializationFailes() {
+        
+        //初期化を失敗させるパターン
+        //負の値の時
+        let negativeRatingMeal = Meal(name: "negative", photo: nil, rating: -1)
+        XCTAssertNil(negativeRatingMeal)
+        
+        //nameが入ってない
+        let emptyStringName = Meal(name: "", photo: nil, rating: 0)
+        XCTAssertNil(emptyStringName)
+        
+        //５以上の時
+        let largeRatingMeal = Meal(name: "Large", photo: nil, rating: 6)
+        XCTAssertNil(largeRatingMeal)
+        
         
     }
+    
+    
     
 }

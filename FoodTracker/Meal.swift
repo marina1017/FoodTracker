@@ -16,8 +16,13 @@ class Meal {
     
     //MARK: Initialization
     init?(name: String, photo: UIImage?, rating: Int) {
-        //ratingが負の値のとき　初期化できないとき
-        if name.isEmpty || rating < 0 {
+        //nameに何も入ってない時
+        guard !name.isEmpty else {
+            return nil
+        }
+        
+        //rateingの値が0から５の時
+        guard rating >= 0 && rating <= 5 else {
             return nil
         }
         
