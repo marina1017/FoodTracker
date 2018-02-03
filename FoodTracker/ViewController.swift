@@ -43,8 +43,7 @@ class ViewController: UIViewController {
             return singleTap
         }()
         self.myStackView.imageView.addGestureRecognizer(singleTap)
-        //制約をかける
-        self.constraints()
+        
         self.debugLog()
 
     }
@@ -52,15 +51,30 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.debugLog()
+        Swift.print("viewWillAppear")
+        Swift.print(self.view.safeAreaInsets.top)
+        //SafeAreができたら制約をかける
+        self.constraints()
         
         
+    }
+    
+    
+    override func viewSafeAreaInsetsDidChange() {
+        
+        self.debugLog()
+        Swift.print("viewSafeAreaInsetsDidChange")
+        Swift.print(self.view.safeAreaInsets.top)
     }
     
     //制約の更新中に呼び出され、ビューコントローラがプロセスを調整できるようにします
     //7 9
     override func updateViewConstraints() {
         super.updateViewConstraints()
+        
         self.debugLog()
+        Swift.print("updateViewConstraints")
+        Swift.print(self.view.safeAreaInsets.top)
     }
     
     //レイアウトされる前に実行される関数
@@ -68,7 +82,8 @@ class ViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         //print(self.view.safeAreaInsets)
         super.viewWillLayoutSubviews()
-        //self.myStackView.setNeedsUpdateConstraints()
+        self.myStackView.layoutIfNeeded()
+        
         self.debugLog()
     }
     
@@ -76,7 +91,7 @@ class ViewController: UIViewController {
     //8 11 13
     override func viewDidLayoutSubviews() {
         //print(self.view.safeAreaInsets)
-
+        
         
         super.viewDidLayoutSubviews()
         self.debugLog()
@@ -94,12 +109,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
         self.debugLog()
     }
+    
 
     func constraints() {
         //myStackViewの制約
-        self.myStackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.safeAreaInsets.top).isActive = true
-        self.myStackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10).isActive = true
-        self.myStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0).isActive = true
+        self.myStackView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        self.myStackView.widthAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.widthAnchor, constant: 10).isActive = true
+        self.myStackView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor, constant: 0).isActive = true
     }
 
     @objc func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
@@ -114,14 +130,7 @@ class ViewController: UIViewController {
 
     }
     
-    func print(debug: Any = "", function: String = #function, file: String = #file, line: Int = #line) {
-        
-            var filename: NSString = file as NSString
-            filename = filename.lastPathComponent as NSString
-            Swift.print("File: \(filename), Line: \(line), Func: \(function) \n\(debug)")
-        
-    }
-    
+    //デバッグ用のlogをとる
     func debugLog( condition: @autoclosure () -> Bool = true, _ message: String = "", function: StaticString = #function, file: StaticString = #file, line: UInt = #line) {
         
         #if DEBUG
