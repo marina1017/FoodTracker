@@ -12,6 +12,8 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+    
+    var myNavigationController: UINavigationController?
 
 
     // 起動した直後
@@ -19,12 +21,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     self.window = UIWindow(frame: UIScreen.main.bounds)
     let initialViewController = MealTableViewController()
+    
+    
+    let navigationController = UINavigationController(rootViewController: initialViewController)
     //ビューコントローラのビューがウィンドウのコンテンツビューとしてインストールされる
     //新しいコンテンツビューは、ウィンドウサイズが変更されると変更されてウィンドウサイズを追跡するように構成されています。
     //ウィンドウに既存のビュー階層がある場合、古いビューは新しいものがインストールされる前に削除されます。
-    self.window?.rootViewController = initialViewController
+    self.window?.rootViewController = navigationController
+    
     //現在のウィンドウを表示し、それを同じレベルまたはそれ以下の他のすべてのウィンドウの前に置く便利な関数。
     self.window?.makeKeyAndVisible()
+    
+    
     
     return true
   }

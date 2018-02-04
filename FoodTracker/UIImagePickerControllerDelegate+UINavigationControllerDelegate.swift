@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: UIImagePickerControllerDelegate+UINavigationControllerDelegate
-extension ViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+extension MealViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
   //ユーザーが画像の選択をキャンセルした時に実行される関数
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     dismiss(animated: true, completion: nil)

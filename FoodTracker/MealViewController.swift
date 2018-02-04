@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MealViewController: UIViewController {
 
     //MARK: -propties-
     //mystackViewをつかう
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
 
         //ジェスチャーを導入
         let singleTap: UITapGestureRecognizer = {
-            let singleTap = UITapGestureRecognizer(target: self, action: #selector(ViewController.selectImageFromPhotoLibrary(sender:)))
+            let singleTap = UITapGestureRecognizer(target: self, action: #selector(MealViewController.selectImageFromPhotoLibrary(sender:)))
             singleTap.numberOfTapsRequired = 1
             return singleTap
         }()
@@ -149,7 +149,7 @@ class ViewController: UIViewController {
 }
 
 // MARK: UITextFiledDelegate
-extension ViewController: UITextFieldDelegate {
+extension MealViewController: UITextFieldDelegate {
 
     // MARK: リターンキーが押された時に実行される関数
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -161,7 +161,7 @@ extension ViewController: UITextFieldDelegate {
     //MARK: テキストを入力し終わった時に実行される関数
     //First Responder が解除された後に呼ばれるデリゲートメソッド
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.myStackView.title = textField.text
+        
     }
 }
 
