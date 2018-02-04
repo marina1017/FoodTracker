@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // 起動した直後
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
+    self.window = UIWindow(frame: UIScreen.main.bounds)
+    let initialViewController = MealTableViewController()
+    //ビューコントローラのビューがウィンドウのコンテンツビューとしてインストールされる
+    //新しいコンテンツビューは、ウィンドウサイズが変更されると変更されてウィンドウサイズを追跡するように構成されています。
+    //ウィンドウに既存のビュー階層がある場合、古いビューは新しいものがインストールされる前に削除されます。
+    self.window?.rootViewController = initialViewController
+    //現在のウィンドウを表示し、それを同じレベルまたはそれ以下の他のすべてのウィンドウの前に置く便利な関数。
+    self.window?.makeKeyAndVisible()
+    
     return true
   }
 
