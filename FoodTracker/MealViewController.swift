@@ -11,6 +11,9 @@ import UIKit
 class MealViewController: UIViewController {
 
     //MARK: -propties-
+    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: "tapCancelButton")
+    let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: "tapSaveButton")
+    
     //mystackViewをつかう
     let myStackView: MyStackView = {
         let stackView = MyStackView()
@@ -32,6 +35,7 @@ class MealViewController: UIViewController {
     //2
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         self.myStackView.initLayout()
         self.myStackView.textFiled.delegate = self
         self.view.addSubview(self.myStackView)
@@ -43,6 +47,13 @@ class MealViewController: UIViewController {
             return singleTap
         }()
         self.myStackView.imageView.addGestureRecognizer(singleTap)
+        
+        //ナビゲーションバー
+        self.navigationController!.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.title = "タイトル"
+        self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+        self.navigationItem.setRightBarButton(self.saveButton, animated: true)
+        
         
         self.debugLog()
 

@@ -110,7 +110,10 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func pushButton(sender:UIButton) {
         let second = MealViewController()
-        self.navigationController?.pushViewController(second, animated: true)
+        let navVC = UINavigationController(rootViewController:second)
+        self.present(navVC, animated: true, completion: nil)
+        
+        
     }
     
 }
