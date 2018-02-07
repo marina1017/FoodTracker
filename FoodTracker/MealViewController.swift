@@ -11,8 +11,11 @@ import UIKit
 class MealViewController: UIViewController {
 
     //MARK: -propties-
-    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: "tapCancelButton")
-    let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: "tapSaveButton")
+    
+    let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(MealViewController.onClickMyBarButton(sender:)))
+    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(MealViewController.onClickMyBarButton(sender:)))
+    var leftBarButton: UIBarButtonItem!
+    
     
     //mystackViewをつかう
     let myStackView: MyStackView = {
@@ -31,6 +34,7 @@ class MealViewController: UIViewController {
     override func loadView() {
         super.loadView()
         self.debugLog()
+        leftBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(MealViewController.tappedLeftBarButton))
     }
     //2
     override func viewDidLoad() {
@@ -48,11 +52,16 @@ class MealViewController: UIViewController {
         }()
         self.myStackView.imageView.addGestureRecognizer(singleTap)
         
-        //ナビゲーションバー
+        //ナビゲーションバーの設定
         self.navigationController!.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = "タイトル"
-        self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-        self.navigationItem.setRightBarButton(self.saveButton, animated: true)
+        
+//        leftBarButton = UIBarButtonItem(title: "< Top Page", style: .plain, target: self, action: #selector(MealViewController.tappedLeftBarButton))
+        
+        
+        self.navigationItem.leftBarButtonItem = leftBarButton
+//        self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
+//        self.navigationItem.setRightBarButton(self.saveButton, animated: true)
         
         
         self.debugLog()
@@ -141,6 +150,7 @@ class MealViewController: UIViewController {
 
     }
     
+    //MARK: method
     //デバッグ用のlogをとる
     func debugLog( condition: @autoclosure () -> Bool = true, _ message: String = "", function: StaticString = #function, file: StaticString = #file, line: UInt = #line) {
         
@@ -154,6 +164,20 @@ class MealViewController: UIViewController {
             assert(condition, message, file: file, line: line)
         #endif
         
+    }
+    
+    /*
+     BarButtonイベント
+     */
+    @objc internal func onClickMyBarButton(sender: UIButton) {
+        print("onClickMyBarButton:")
+    }
+    
+    // ボタンをタップしたときのアクション
+    @objc func tappedLeftBarButton() {
+//        let topPage = ViewController()
+//        self.navigationController?.pushViewController(topPage, animated: true)
+        print("onClickMyBarButton:")
     }
 
 

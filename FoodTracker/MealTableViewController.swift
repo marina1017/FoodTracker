@@ -110,7 +110,9 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     @objc func pushButton(sender:UIButton) {
         let second = MealViewController()
+        //遷移する前にナビゲーションコントローラーのインスタンスに遷移先のViewContorollerを入れる
         let navVC = UINavigationController(rootViewController:second)
+        //ナビゲーションコントローラーの渡してモーダル遷移を行う
         self.present(navVC, animated: true, completion: nil)
         
         
