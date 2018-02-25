@@ -175,9 +175,8 @@ class MealViewController: UIViewController {
     
     // ボタンをタップしたときのアクション
     @objc func tappedLeftBarButton() {
-//        let topPage = ViewController()
-//        self.navigationController?.pushViewController(topPage, animated: true)
-        print("onClickMyBarButton:")
+        //もとのビューコントローラに戻る
+        self.dismiss(animated: true, completion: nil)
     }
 
 
