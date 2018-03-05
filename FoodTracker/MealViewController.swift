@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import os.log
 
 class MealViewController: UIViewController {
 
     //MARK: -propties-
-    
-    let saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(MealViewController.onClickMyBarButton(sender:)))
-    let cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(MealViewController.onClickMyBarButton(sender:)))
-    var leftBarButton: UIBarButtonItem!
+    var cancelButton: UIBarButtonItem!
+    var saveButton: UIBarButtonItem!
+    var originViewController = MealTableViewController()
     
     
     //mystackViewをつかう
@@ -28,14 +28,18 @@ class MealViewController: UIViewController {
         stackView.title = "てすとてすと"
         return stackView
     }()
+    
+    //渡すオブジェクト
+    var meal: Meal?
 
     //MARK: -lifecycle-
     //1
     override func loadView() {
         super.loadView()
-        self.debugLog()
-        leftBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(MealViewController.tappedLeftBarButton))
+        cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(MealViewController.tappedLeftBarButton))
+        saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(MealViewController.tappedRightBarButton))
     }
+    
     //2
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,82 +56,50 @@ class MealViewController: UIViewController {
         }()
         self.myStackView.imageView.addGestureRecognizer(singleTap)
         
-        //ナビゲーションバーの設定
+        //MARK: ナビゲーションバーの設定
         self.navigationController!.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = "タイトル"
-        
-//        leftBarButton = UIBarButtonItem(title: "< Top Page", style: .plain, target: self, action: #selector(MealViewController.tappedLeftBarButton))
-        
-        
-        self.navigationItem.leftBarButtonItem = leftBarButton
-//        self.navigationItem.setLeftBarButton(self.cancelButton, animated: true)
-//        self.navigationItem.setRightBarButton(self.saveButton, animated: true)
-        
-        
-        self.debugLog()
-
+        //self.navigationItem.leftBarButtonItem = cancelButton
+        self.navigationItem.rightBarButtonItem = saveButton
+        //テキストフィールドに名前が入るとNavigation Bar のタイトルが変更される
+        self.updateSaveButtonState()
     }
-    //3
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.debugLog()
-        Swift.print("viewWillAppear")
-        Swift.print(self.view.safeAreaInsets.top)
-        //SafeAreができたら制約をかける
+        //SafeAreaができたら制約をかける
         self.constraints()
         
         
     }
     
-    
     override func viewSafeAreaInsetsDidChange() {
-        
-        self.debugLog()
-        Swift.print("viewSafeAreaInsetsDidChange")
-        Swift.print(self.view.safeAreaInsets.top)
     }
     
     //制約の更新中に呼び出され、ビューコントローラがプロセスを調整できるようにします
-    //7 9
     override func updateViewConstraints() {
         super.updateViewConstraints()
-        
-        self.debugLog()
-        Swift.print("updateViewConstraints")
-        Swift.print(self.view.safeAreaInsets.top)
     }
     
     //レイアウトされる前に実行される関数
-    //4 10 12
     override func viewWillLayoutSubviews() {
         //print(self.view.safeAreaInsets)
         super.viewWillLayoutSubviews()
         self.myStackView.layoutIfNeeded()
-        
-        self.debugLog()
     }
     
     //レイアウトされた後に実行される関数
-    //8 11 13
     override func viewDidLayoutSubviews() {
-        //print(self.view.safeAreaInsets)
-        
-        
         super.viewDidLayoutSubviews()
-        self.debugLog()
     }
-    //15
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //print(self.view.safeAreaInsets)
-        self.debugLog()
     }
 
     override func didReceiveMemoryWarning() {
         //メモリワーニングを受け取った直後に呼ばれるメソッド
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        self.debugLog()
     }
     
 
@@ -150,30 +122,26 @@ class MealViewController: UIViewController {
 
     }
     
-    //MARK: method
-    //デバッグ用のlogをとる
-    func debugLog( condition: @autoclosure () -> Bool = true, _ message: String = "", function: StaticString = #function, file: StaticString = #file, line: UInt = #line) {
-        
-        #if DEBUG
-            if let fileName = NSURL(string: String(describing: file))?.lastPathComponent {
-                Swift.print("function: \(function), file: \(fileName)")
-            } else {
-                Swift.print("function: \(function), file: \(file)")
-            }
-            
-            assert(condition, message, file: file, line: line)
-        #endif
-        
-    }
+    // MARK: Navigation
     
     /*
-     BarButtonイベント
+     NavigationBarButtonイベント
      */
-    @objc internal func onClickMyBarButton(sender: UIButton) {
-        print("onClickMyBarButton:")
+    //saveボタン
+    @objc func tappedRightBarButton() {
+        //キーボードをしまう
+        self.myStackView.textFiled.resignFirstResponder()
+        
+        let name = self.myStackView.textFiled.text ?? ""
+        let photo = self.myStackView.imageView.image
+        let rating = self.myStackView.ratingControllView.rating
+        
+        meal = Meal(name: name, photo: photo, rating: rating)
+        self.originViewController.unwindToMealList(viewController: self)
+        self.dismiss(animated: true, completion: {})
     }
     
-    // ボタンをタップしたときのアクション
+    // キャンセルボタンをタップしたときのアクション
     @objc func tappedLeftBarButton() {
         //もとのビューコントローラに戻る
         self.dismiss(animated: true, completion: nil)
@@ -195,8 +163,22 @@ extension MealViewController: UITextFieldDelegate {
     //MARK: テキストを入力し終わった時に実行される関数
     //First Responder が解除された後に呼ばれるデリゲートメソッド
     func textFieldDidEndEditing(_ textField: UITextField) {
+        self.updateSaveButtonState()
+        navigationItem.title = textField.text
         
     }
+    
+    //MARK: テキストが編集し始めた時キーボードが出現した時に呼ばれるメソッド
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.saveButton.isEnabled = false
+    }
+    
+    //MARK: Private Methods
+    fileprivate func updateSaveButtonState() {
+        let text = self.myStackView.textFiled.text ?? ""
+        self.saveButton.isEnabled = !text.isEmpty
+    }
 }
+
 
 

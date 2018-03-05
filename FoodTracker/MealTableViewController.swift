@@ -12,6 +12,8 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: Properties
     //入力されるデータたち
     var meals = [Meal]()
+    var myTableView = UITableView()
+    
     
 
     //MARK: Private methods
@@ -53,7 +55,8 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         loadSampleMeals()
 
-        let myTableView = UITableView(frame: self.view.frame, style: .plain)
+        //テーブルビュー
+        myTableView = UITableView(frame: self.view.frame, style: .plain)
         myTableView.rowHeight = 100
         myTableView.delegate = self
         myTableView.dataSource = self
@@ -104,18 +107,36 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let second = MealViewController()
+        //セルの選択解除
+        tableView.deselectRow(at: indexPath, animated: true)
+        //遷移先のMealViewControllerに遷移元のself(MealTableViewController)を渡しておく
+        second.originViewController = self
+        //遷移先コントローラーの渡してプッシュ遷移を行う
+        self.navigationController?.pushViewController(second, animated: true)
         
         
     }
     
+    //追加ボタンをおした時
     @objc func pushButton(sender:UIButton) {
         let second = MealViewController()
+        //遷移先のMealViewControllerに遷移元のself(MealTableViewController)を渡しておく
+        second.originViewController = self
         //遷移する前にナビゲーションコントローラーのインスタンスに遷移先のViewContorollerを入れる
         let navVC = UINavigationController(rootViewController:second)
         //ナビゲーションコントローラーの渡してモーダル遷移を行う
         self.present(navVC, animated: true, completion: nil)
-        
-        
+    }
+    
+    func unwindToMealList(viewController: MealViewController) {
+        if let sourceViewController = viewController as? MealViewController, let meal = sourceViewController.meal {
+            // mealsの配列に新しいデータを入れる
+            let newIndexPath = IndexPath(row: meals.count, section: 0)
+            meals.append(meal)
+            self.myTableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
     }
     
 }
+
