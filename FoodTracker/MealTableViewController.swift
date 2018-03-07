@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class MealTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     // MARK: Properties
@@ -40,10 +41,18 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //ナビゲーションバーの設定
         // タイトルをセット
         self.navigationItem.title = "title font test"
         let barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(MealTableViewController.pushButton(sender:)))
         self.navigationItem.setRightBarButton(barButton, animated: true)
+        self.navigationItem.leftBarButtonItem = editButtonItem
+        //データの呼び出し
+        if let savedMeals = loadMeals() {
+            meals += savedMeals
+        } else {
+            loadSampleMeals()
+        }
         // iOS 11 からの機能
         if #available(iOS 11.0, *) {
             self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -52,8 +61,6 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
             // この ViewController でどうするか
             self.navigationItem.largeTitleDisplayMode = .always
         }
-        
-        loadSampleMeals()
 
         //テーブルビュー
         myTableView = UITableView(frame: self.view.frame, style: .plain)
@@ -112,10 +119,31 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
         tableView.deselectRow(at: indexPath, animated: true)
         //遷移先のMealViewControllerに遷移元のself(MealTableViewController)を渡しておく
         second.originViewController = self
+        //選択したセルの番号に対応するデータを取り出す
+        let selectedMeal = meals[indexPath.row]
+        second.meal = selectedMeal
+        second.selectedIndexPath = indexPath
         //遷移先コントローラーの渡してプッシュ遷移を行う
         self.navigationController?.pushViewController(second, animated: true)
-        
-        
+    }
+    
+    //TableView編集時のデリゲートメソッド
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //indexPath.row番目のモデルをmealsから削除している
+            meals.remove(at: indexPath.row)
+            //データの永続化
+            saveMeals()
+            //削除したのをtableViewに反映させている
+            self.myTableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            //データを挿入する場合はこの辺にかけばいいらしい
+        }
+    }
+    
+    //TableViewの条件付き編集をサポートする関数　指定した項目を編集可能にしたい場合はtrueを返す
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     //追加ボタンをおした時
@@ -129,14 +157,43 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.present(navVC, animated: true, completion: nil)
     }
     
-    func unwindToMealList(viewController: MealViewController) {
-        if let sourceViewController = viewController as? MealViewController, let meal = sourceViewController.meal {
+    //MealViewControllerから戻ってきた時mealsにデータを入れる
+    func unwindToMealList(sourceViewController: MealViewController) {
+        
+        if let meal = sourceViewController.meal {
             // mealsの配列に新しいデータを入れる
             let newIndexPath = IndexPath(row: meals.count, section: 0)
             meals.append(meal)
+            saveMeals()
             self.myTableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
+    
+    //すでに入っているデータを修正する
+    func fixToMealList(sourceViewController: MealViewController, indexPath: IndexPath) {
+        if let meal = sourceViewController.meal {
+            // mealsの配列に新しいデータを入れる
+            self.meals[indexPath.row] = meal
+            saveMeals()
+            self.myTableView.reloadRows(at: [indexPath], with: .none)
+        }
+    }
+    
+    //データの永続化 meals を保存するタイミングになったらこのメソッドを呼び出す
+    //このメソッドには保存できる形式にした Meal オブジェクトを適切な場所に保存する処理をかく
+    private func saveMeals() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("保存が成功しました", log: OSLog.default, type: .debug)
+        } else {
+            os_log("保存が失敗しました", log:OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadMeals() -> [Meal]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Meal.ArchiveURL.path) as? [Meal]
+    }
+    
     
 }
 

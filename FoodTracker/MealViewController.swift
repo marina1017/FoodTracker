@@ -15,6 +15,8 @@ class MealViewController: UIViewController {
     var cancelButton: UIBarButtonItem!
     var saveButton: UIBarButtonItem!
     var originViewController = MealTableViewController()
+    //選択されたセル番号を保存する
+    var selectedIndexPath: IndexPath!
     
     
     //mystackViewをつかう
@@ -33,20 +35,26 @@ class MealViewController: UIViewController {
     var meal: Meal?
 
     //MARK: -lifecycle-
-    //1
     override func loadView() {
         super.loadView()
         cancelButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.cancel, target: self, action: #selector(MealViewController.tappedLeftBarButton))
         saveButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.save, target: self, action: #selector(MealViewController.tappedRightBarButton))
     }
     
-    //2
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         self.myStackView.initLayout()
         self.myStackView.textFiled.delegate = self
         self.view.addSubview(self.myStackView)
+        
+        //Mealにデータが入っている場合
+        if let meal = meal {
+            self.navigationItem.title = meal.name
+            self.myStackView.textFiled.text = meal.name
+            self.myStackView.imageView.image = meal.photo
+            self.myStackView.ratingControllView.rating = meal.rating
+        }
 
         //ジェスチャーを導入
         let singleTap: UITapGestureRecognizer = {
@@ -59,8 +67,9 @@ class MealViewController: UIViewController {
         //MARK: ナビゲーションバーの設定
         self.navigationController!.setNavigationBarHidden(false, animated: false)
         self.navigationItem.title = "タイトル"
-        //self.navigationItem.leftBarButtonItem = cancelButton
-        self.navigationItem.rightBarButtonItem = saveButton
+        self.navigationItem.leftBarButtonItem = self.cancelButton
+        self.navigationItem.rightBarButtonItem = self.saveButton
+
         //テキストフィールドに名前が入るとNavigation Bar のタイトルが変更される
         self.updateSaveButtonState()
     }
@@ -127,8 +136,55 @@ class MealViewController: UIViewController {
     /*
      NavigationBarButtonイベント
      */
-    //saveボタン
+    //MARK: saveボタンをタップしたときのアクション
     @objc func tappedRightBarButton() {
+        //キーボードをしまう
+        self.myStackView.textFiled.resignFirstResponder()
+        
+        //変更されたデータを入れる
+        let name = self.myStackView.textFiled.text ?? ""
+        let photo = self.myStackView.imageView.image
+        let rating = self.myStackView.ratingControllView.rating
+        
+        meal = Meal(name: name, photo: photo, rating: rating)
+        
+        //現在モーダル遷移かプッシュ遷移どちらで表示されているのか判定する
+        let isPresentingIndAddMealMode = presentingViewController is UINavigationController
+        //モーダルの時に実行する関数
+        if isPresentingIndAddMealMode {
+            self.originViewController.unwindToMealList(sourceViewController: self)
+            self.dismiss(animated: true, completion:nil)
+        }
+        //プッシュの時に実行する関数
+        else if let owingNavigationController = navigationController {
+            self.originViewController.fixToMealList(sourceViewController: self, indexPath: self.selectedIndexPath)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+       
+    }
+    
+    //MARK: キャンセルボタンをタップしたときのアクション
+    @objc func tappedLeftBarButton() {
+        //現在モーダル遷移かプッシュ遷移どちらで表示されているのか判定する
+        let isPresentingIndAddMealMode = presentingViewController is UINavigationController
+        //モーダルの時の遷移方法
+        if isPresentingIndAddMealMode {
+            self.dismiss(animated: true, completion: nil)
+        }
+        //プッシュの時の遷移方法
+        else if let owingNavigationController = navigationController {
+            owingNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+        
+    }
+    
+    //MARK: エディットボタンをタップしたときのアクション
+    @objc func tappedEditButton() {
         //キーボードをしまう
         self.myStackView.textFiled.resignFirstResponder()
         
@@ -137,14 +193,8 @@ class MealViewController: UIViewController {
         let rating = self.myStackView.ratingControllView.rating
         
         meal = Meal(name: name, photo: photo, rating: rating)
-        self.originViewController.unwindToMealList(viewController: self)
-        self.dismiss(animated: true, completion: {})
-    }
-    
-    // キャンセルボタンをタップしたときのアクション
-    @objc func tappedLeftBarButton() {
-        //もとのビューコントローラに戻る
-        self.dismiss(animated: true, completion: nil)
+        
+        self.originViewController.fixToMealList(sourceViewController: self, indexPath: self.selectedIndexPath)
     }
 
 
