@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import FoodTracker-code
+@testable import FoodTracker_code
 
 //MARK: Meal Class Test
 class FoodTrackerTests: XCTestCase {
@@ -46,4 +46,5 @@ class FoodTrackerTests: XCTestCase {
 
 
 }
+
 

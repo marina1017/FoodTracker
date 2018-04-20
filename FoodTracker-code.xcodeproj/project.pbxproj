@@ -12,18 +12,17 @@
 		C0403AFE2089A1CF00D0309B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0403AFC2089A1CF00D0309B /* Main.storyboard */; };
 		C0403B002089A1D200D0309B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0403AFF2089A1D200D0309B /* Assets.xcassets */; };
 		C0403B032089A1D200D0309B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0403B012089A1D200D0309B /* LaunchScreen.storyboard */; };
-		C0403B112089AE9100D0309B /* FoodTracker_codeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */; };
 		C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B182089B17100D0309B /* MealTableViewController.swift */; };
 		C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */; };
 		C0403B1D2089B21A00D0309B /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1C2089B21A00D0309B /* RatingControl.swift */; };
 		C0403B1F2089B2CD00D0309B /* myStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1E2089B2CD00D0309B /* myStackView.swift */; };
 		C0403B212089B36400D0309B /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B202089B36400D0309B /* Meal.swift */; };
 		C0403B232089B38600D0309B /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B222089B38600D0309B /* MealTableViewCell.swift */; };
-		C0403B242089B3C800D0309B /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B202089B36400D0309B /* Meal.swift */; };
+		C0403B332089B7D300D0309B /* FoodTracker_codeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B322089B7D300D0309B /* FoodTracker_codeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C0403B132089AE9100D0309B /* PBXContainerItemProxy */ = {
+		C0403B352089B7D300D0309B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C0403AED2089A1CF00D0309B /* Project object */;
 			proxyType = 1;
@@ -40,15 +39,15 @@
 		C0403AFF2089A1D200D0309B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C0403B022089A1D200D0309B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C0403B042089A1D200D0309B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C0403B0E2089AE9100D0309B /* FoodTracker-codeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FoodTracker-codeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTracker_codeTests.swift; sourceTree = "<group>"; };
-		C0403B122089AE9100D0309B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0403B182089B17100D0309B /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		C0403B1C2089B21A00D0309B /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C0403B1E2089B2CD00D0309B /* myStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myStackView.swift; sourceTree = "<group>"; };
 		C0403B202089B36400D0309B /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C0403B222089B38600D0309B /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
+		C0403B302089B7D300D0309B /* FoodTracker-codeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FoodTracker-codeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0403B322089B7D300D0309B /* FoodTracker_codeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTracker_codeTests.swift; sourceTree = "<group>"; };
+		C0403B342089B7D300D0309B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +58,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0403B0B2089AE9100D0309B /* Frameworks */ = {
+		C0403B2D2089B7D300D0309B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,7 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				C0403AF72089A1CF00D0309B /* FoodTracker-code */,
-				C0403B0F2089AE9100D0309B /* FoodTracker-codeTests */,
+				C0403B312089B7D300D0309B /* FoodTracker-codeTests */,
 				C0403AF62089A1CF00D0309B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				C0403AF52089A1CF00D0309B /* FoodTracker-code.app */,
-				C0403B0E2089AE9100D0309B /* FoodTracker-codeTests.xctest */,
+				C0403B302089B7D300D0309B /* FoodTracker-codeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,11 +105,11 @@
 			path = "FoodTracker-code";
 			sourceTree = "<group>";
 		};
-		C0403B0F2089AE9100D0309B /* FoodTracker-codeTests */ = {
+		C0403B312089B7D300D0309B /* FoodTracker-codeTests */ = {
 			isa = PBXGroup;
 			children = (
-				C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */,
-				C0403B122089AE9100D0309B /* Info.plist */,
+				C0403B322089B7D300D0309B /* FoodTracker_codeTests.swift */,
+				C0403B342089B7D300D0309B /* Info.plist */,
 			);
 			path = "FoodTracker-codeTests";
 			sourceTree = "<group>";
@@ -135,22 +134,22 @@
 			productReference = C0403AF52089A1CF00D0309B /* FoodTracker-code.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C0403B0D2089AE9100D0309B /* FoodTracker-codeTests */ = {
+		C0403B2F2089B7D300D0309B /* FoodTracker-codeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C0403B152089AE9100D0309B /* Build configuration list for PBXNativeTarget "FoodTracker-codeTests" */;
+			buildConfigurationList = C0403B372089B7D300D0309B /* Build configuration list for PBXNativeTarget "FoodTracker-codeTests" */;
 			buildPhases = (
-				C0403B0A2089AE9100D0309B /* Sources */,
-				C0403B0B2089AE9100D0309B /* Frameworks */,
-				C0403B0C2089AE9100D0309B /* Resources */,
+				C0403B2C2089B7D300D0309B /* Sources */,
+				C0403B2D2089B7D300D0309B /* Frameworks */,
+				C0403B2E2089B7D300D0309B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C0403B142089AE9100D0309B /* PBXTargetDependency */,
+				C0403B362089B7D300D0309B /* PBXTargetDependency */,
 			);
 			name = "FoodTracker-codeTests";
 			productName = "FoodTracker-codeTests";
-			productReference = C0403B0E2089AE9100D0309B /* FoodTracker-codeTests.xctest */;
+			productReference = C0403B302089B7D300D0309B /* FoodTracker-codeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -166,7 +165,7 @@
 					C0403AF42089A1CF00D0309B = {
 						CreatedOnToolsVersion = 9.3;
 					};
-					C0403B0D2089AE9100D0309B = {
+					C0403B2F2089B7D300D0309B = {
 						CreatedOnToolsVersion = 9.3;
 						TestTargetID = C0403AF42089A1CF00D0309B;
 					};
@@ -186,7 +185,7 @@
 			projectRoot = "";
 			targets = (
 				C0403AF42089A1CF00D0309B /* FoodTracker-code */,
-				C0403B0D2089AE9100D0309B /* FoodTracker-codeTests */,
+				C0403B2F2089B7D300D0309B /* FoodTracker-codeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -202,7 +201,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0403B0C2089AE9100D0309B /* Resources */ = {
+		C0403B2E2089B7D300D0309B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -227,22 +226,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0403B0A2089AE9100D0309B /* Sources */ = {
+		C0403B2C2089B7D300D0309B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0403B242089B3C800D0309B /* Meal.swift in Sources */,
-				C0403B112089AE9100D0309B /* FoodTracker_codeTests.swift in Sources */,
+				C0403B332089B7D300D0309B /* FoodTracker_codeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C0403B142089AE9100D0309B /* PBXTargetDependency */ = {
+		C0403B362089B7D300D0309B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C0403AF42089A1CF00D0309B /* FoodTracker-code */;
-			targetProxy = C0403B132089AE9100D0309B /* PBXContainerItemProxy */;
+			targetProxy = C0403B352089B7D300D0309B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -386,6 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P6RZ729U4;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "FoodTracker-code/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -404,6 +403,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7P6RZ729U4;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = "FoodTracker-code/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -416,7 +416,7 @@
 			};
 			name = Release;
 		};
-		C0403B162089AE9100D0309B /* Debug */ = {
+		C0403B382089B7D300D0309B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -436,7 +436,7 @@
 			};
 			name = Debug;
 		};
-		C0403B172089AE9100D0309B /* Release */ = {
+		C0403B392089B7D300D0309B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -477,11 +477,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C0403B152089AE9100D0309B /* Build configuration list for PBXNativeTarget "FoodTracker-codeTests" */ = {
+		C0403B372089B7D300D0309B /* Build configuration list for PBXNativeTarget "FoodTracker-codeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C0403B162089AE9100D0309B /* Debug */,
-				C0403B172089AE9100D0309B /* Release */,
+				C0403B382089B7D300D0309B /* Debug */,
+				C0403B392089B7D300D0309B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
