@@ -92,16 +92,16 @@
 			children = (
 				C0403AF82089A1CF00D0309B /* AppDelegate.swift */,
 				C0403AFA2089A1CF00D0309B /* MealViewController.swift */,
-				C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */,
 				C0403B182089B17100D0309B /* MealTableViewController.swift */,
+				C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */,
 				C0403B1C2089B21A00D0309B /* RatingControl.swift */,
 				C0403B1E2089B2CD00D0309B /* myStackView.swift */,
+				C0403B202089B36400D0309B /* Meal.swift */,
+				C0403B222089B38600D0309B /* MealTableViewCell.swift */,
 				C0403AFC2089A1CF00D0309B /* Main.storyboard */,
 				C0403AFF2089A1D200D0309B /* Assets.xcassets */,
 				C0403B012089A1D200D0309B /* LaunchScreen.storyboard */,
 				C0403B042089A1D200D0309B /* Info.plist */,
-				C0403B202089B36400D0309B /* Meal.swift */,
-				C0403B222089B38600D0309B /* MealTableViewCell.swift */,
 			);
 			path = "FoodTracker-code";
 			sourceTree = "<group>";
