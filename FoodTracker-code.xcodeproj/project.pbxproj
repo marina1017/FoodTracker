@@ -16,6 +16,7 @@
 		C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B182089B17100D0309B /* MealTableViewController.swift */; };
 		C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */; };
 		C0403B1D2089B21A00D0309B /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1C2089B21A00D0309B /* RatingControl.swift */; };
+		C0403B1F2089B2CD00D0309B /* myStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1E2089B2CD00D0309B /* myStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		C0403B182089B17100D0309B /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 		C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		C0403B1C2089B21A00D0309B /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		C0403B1E2089B2CD00D0309B /* myStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				C0403B042089A1D200D0309B /* Info.plist */,
 				C0403B182089B17100D0309B /* MealTableViewController.swift */,
 				C0403B1C2089B21A00D0309B /* RatingControl.swift */,
+				C0403B1E2089B2CD00D0309B /* myStackView.swift */,
 			);
 			path = "FoodTracker-code";
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				C0403AFB2089A1CF00D0309B /* MealViewController.swift in Sources */,
 				C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */,
 				C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */,
+				C0403B1F2089B2CD00D0309B /* myStackView.swift in Sources */,
 				C0403B1D2089B21A00D0309B /* RatingControl.swift in Sources */,
 				C0403AF92089A1CF00D0309B /* AppDelegate.swift in Sources */,
 			);
