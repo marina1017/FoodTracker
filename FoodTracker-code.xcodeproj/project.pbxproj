@@ -17,6 +17,9 @@
 		C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */; };
 		C0403B1D2089B21A00D0309B /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1C2089B21A00D0309B /* RatingControl.swift */; };
 		C0403B1F2089B2CD00D0309B /* myStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1E2089B2CD00D0309B /* myStackView.swift */; };
+		C0403B212089B36400D0309B /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B202089B36400D0309B /* Meal.swift */; };
+		C0403B232089B38600D0309B /* MealTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B222089B38600D0309B /* MealTableViewCell.swift */; };
+		C0403B242089B3C800D0309B /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B202089B36400D0309B /* Meal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,8 @@
 		C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 		C0403B1C2089B21A00D0309B /* RatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		C0403B1E2089B2CD00D0309B /* myStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myStackView.swift; sourceTree = "<group>"; };
+		C0403B202089B36400D0309B /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		C0403B222089B38600D0309B /* MealTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,13 +93,15 @@
 				C0403AF82089A1CF00D0309B /* AppDelegate.swift */,
 				C0403AFA2089A1CF00D0309B /* MealViewController.swift */,
 				C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */,
+				C0403B182089B17100D0309B /* MealTableViewController.swift */,
+				C0403B1C2089B21A00D0309B /* RatingControl.swift */,
+				C0403B1E2089B2CD00D0309B /* myStackView.swift */,
 				C0403AFC2089A1CF00D0309B /* Main.storyboard */,
 				C0403AFF2089A1D200D0309B /* Assets.xcassets */,
 				C0403B012089A1D200D0309B /* LaunchScreen.storyboard */,
 				C0403B042089A1D200D0309B /* Info.plist */,
-				C0403B182089B17100D0309B /* MealTableViewController.swift */,
-				C0403B1C2089B21A00D0309B /* RatingControl.swift */,
-				C0403B1E2089B2CD00D0309B /* myStackView.swift */,
+				C0403B202089B36400D0309B /* Meal.swift */,
+				C0403B222089B38600D0309B /* MealTableViewCell.swift */,
 			);
 			path = "FoodTracker-code";
 			sourceTree = "<group>";
@@ -211,7 +218,9 @@
 			files = (
 				C0403AFB2089A1CF00D0309B /* MealViewController.swift in Sources */,
 				C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */,
+				C0403B212089B36400D0309B /* Meal.swift in Sources */,
 				C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */,
+				C0403B232089B38600D0309B /* MealTableViewCell.swift in Sources */,
 				C0403B1F2089B2CD00D0309B /* myStackView.swift in Sources */,
 				C0403B1D2089B21A00D0309B /* RatingControl.swift in Sources */,
 				C0403AF92089A1CF00D0309B /* AppDelegate.swift in Sources */,
@@ -222,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0403B242089B3C800D0309B /* Meal.swift in Sources */,
 				C0403B112089AE9100D0309B /* FoodTracker_codeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
