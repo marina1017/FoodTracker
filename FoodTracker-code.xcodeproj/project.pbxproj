@@ -13,6 +13,7 @@
 		C0403B002089A1D200D0309B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0403AFF2089A1D200D0309B /* Assets.xcassets */; };
 		C0403B032089A1D200D0309B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0403B012089A1D200D0309B /* LaunchScreen.storyboard */; };
 		C0403B112089AE9100D0309B /* FoodTracker_codeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */; };
+		C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B182089B17100D0309B /* MealTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		C0403B0E2089AE9100D0309B /* FoodTracker-codeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FoodTracker-codeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTracker_codeTests.swift; sourceTree = "<group>"; };
 		C0403B122089AE9100D0309B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0403B182089B17100D0309B /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				C0403AFF2089A1D200D0309B /* Assets.xcassets */,
 				C0403B012089A1D200D0309B /* LaunchScreen.storyboard */,
 				C0403B042089A1D200D0309B /* Info.plist */,
+				C0403B182089B17100D0309B /* MealTableViewController.swift */,
 			);
 			path = "FoodTracker-code";
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0403AFB2089A1CF00D0309B /* MealViewController.swift in Sources */,
+				C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */,
 				C0403AF92089A1CF00D0309B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
