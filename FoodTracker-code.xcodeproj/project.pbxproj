@@ -14,6 +14,7 @@
 		C0403B032089A1D200D0309B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0403B012089A1D200D0309B /* LaunchScreen.storyboard */; };
 		C0403B112089AE9100D0309B /* FoodTracker_codeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */; };
 		C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B182089B17100D0309B /* MealTableViewController.swift */; };
+		C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		C0403B102089AE9100D0309B /* FoodTracker_codeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTracker_codeTests.swift; sourceTree = "<group>"; };
 		C0403B122089AE9100D0309B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0403B182089B17100D0309B /* MealTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTableViewController.swift; sourceTree = "<group>"; };
+		C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				C0403B012089A1D200D0309B /* LaunchScreen.storyboard */,
 				C0403B042089A1D200D0309B /* Info.plist */,
 				C0403B182089B17100D0309B /* MealTableViewController.swift */,
+				C0403B1A2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift */,
 			);
 			path = "FoodTracker-code";
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0403AFB2089A1CF00D0309B /* MealViewController.swift in Sources */,
+				C0403B1B2089B1B100D0309B /* UIImagePickerControllerDelegate+UINavigationControllerDelegate.swift in Sources */,
 				C0403B192089B17100D0309B /* MealTableViewController.swift in Sources */,
 				C0403AF92089A1CF00D0309B /* AppDelegate.swift in Sources */,
 			);
