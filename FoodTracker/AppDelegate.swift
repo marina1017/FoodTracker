@@ -10,30 +10,27 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+  //アプリのインターフェースの背景
+  //windowはイベントを制御し、アプリを制御する基本となるたくさんのタスクを実行する
   var window: UIWindow?
     
-    var myNavigationController: UINavigationController?
-
-
-    // 起動した直後
+    // 起動した直後に走る関数
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    
+    //ストーリーボードを使わない場合は、このwindowを自分で作る必要がある。
     self.window = UIWindow(frame: UIScreen.main.bounds)
+    //アプリが起動した時に一番最初に表示されたいViewControllerのインスタンスをつくる
     let initialViewController = MealTableViewController()
     
-    
+    //UINavigationControllerにrootViewControllerにしたい、viewControllerを入れてインスタンスを作成
     let navigationController = UINavigationController(rootViewController: initialViewController)
-    //ビューコントローラのビューがウィンドウのコンテンツビューとしてインストールされる
-    //新しいコンテンツビューは、ウィンドウサイズが変更されると変更されてウィンドウサイズを追跡するように構成されています。
-    //ウィンドウに既存のビュー階層がある場合、古いビューは新しいものがインストールされる前に削除されます。
+
+    //アプリが立ち上がって一番最初に表示される画面をrootViewControllerという
+    //windowのプロパティであるrootViewControllerに、表示させたいUIViewControllerを設定する
     self.window?.rootViewController = navigationController
     
     //現在のウィンドウを表示し、それを同じレベルまたはそれ以下の他のすべてのウィンドウの前に置く便利な関数。
     self.window?.makeKeyAndVisible()
-    
-    
-    
+
     return true
   }
 
