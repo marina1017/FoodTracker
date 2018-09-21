@@ -48,6 +48,9 @@ class MealViewController: UIViewController {
         self.myStackView.textFiled.delegate = self
         self.view.addSubview(self.myStackView)
         
+        let label = UILabel()
+        label.textColor = UIColor.blue
+        
         //Mealにデータが入っている場合
         if let meal = meal {
             self.navigationItem.title = meal.name

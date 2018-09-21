@@ -60,6 +60,9 @@ class MealTableViewController: UIViewController, UITableViewDelegate, UITableVie
         if #available(iOS 11.0, *) {
             // この ViewController でどうするか
             self.navigationItem.largeTitleDisplayMode = .always
+            self.dismiss(animated: true){
+                
+            }
         }
 
         //テーブルビュー
